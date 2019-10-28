@@ -1,5 +1,9 @@
 package com.zipcodewilmington.assessment1.part2;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
  * Created by leon on 2/16/18.
  */
@@ -35,7 +39,12 @@ public class ArrayUtils {
                 count++;
             }
         }
-        return resultArray;
+        Integer[] integerArray = Arrays.copyOf(resultArray, resultArray.length, Integer[].class);
+        return integerArray;
+//        ArrayList<Object> resultArray = new ArrayList<>();
+//
+//        resultArray.remove(objectToRemove);
+//        return resultArray.toArray(new Object[resultArray.size()]);
     }
 
     /**
@@ -83,14 +92,25 @@ public class ArrayUtils {
      * @return an array containing all elements in `objectArray` and `objectArrayToAdd`
      * given two arrays `objectArray` and `objectArrayToAdd`, return an array containing all elements in `objectArray` and `objectArrayToAdd`
      */
-    public static Object[] mergeArrays(Object[] objectArray, Object[] objectArrayToAdd) {
-        Object[] result = new Object[objectArray.length + objectArrayToAdd.length];
+    public static <T> Object[] mergeArrays(Object[] objectArray, Object[] objectArrayToAdd) {
+        Object[] resultArray = new Object[objectArray.length + objectArrayToAdd.length];
         for (int i = 0; i < objectArray.length; i++) {
-            result[i] = objectArray[i];
+            resultArray[i] = objectArray[i];
         }
         for (int i = objectArray.length; i < objectArrayToAdd.length + objectArray.length; i++) {
-            result[i] = objectArrayToAdd[i-objectArray.length];
+            resultArray[i] = objectArrayToAdd[i-objectArray.length];
         }
-        return result;
+        Integer[] integerArray = Arrays.copyOf(resultArray, resultArray.length, Integer[].class);
+        return integerArray;
+//        ArrayList<T> result = new ArrayList<T>(objectArray.length + objectArrayToAdd.length);
+//        for (int i = 0; i < objectArray.length; i++) {
+//            result.add(objectArray[i]);
+//        }
+//        for (int i = 0; i < objectArrayToAdd.length; i++) {
+//            result.add(objectArrayToAdd[i]);
+//        }
+//        Object[] array = result.toArray(new Object[objectArray.length + objectArrayToAdd.length]);
+//        return array;
+
     }
 }
