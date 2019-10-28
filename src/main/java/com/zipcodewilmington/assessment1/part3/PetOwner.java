@@ -19,6 +19,11 @@ public class PetOwner {
     public PetOwner(String name, Pet... pets) {
         this.name = name;
         this.pets = pets;
+        if (pets != null) {
+            for (Pet pet : pets) {
+                pet.setOwner(this);
+            }
+        }
     }
 
     /**
