@@ -45,4 +45,5 @@ public class IntegerUtilsTest {
         // : Then
         Assert.assertEquals(expected, actual);
     }
+
 }
