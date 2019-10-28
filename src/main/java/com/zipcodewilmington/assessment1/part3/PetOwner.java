@@ -3,6 +3,8 @@ package com.zipcodewilmington.assessment1.part3;
 import com.zipcodewilmington.assessment1.part1.IntegerArrayUtils;
 import com.zipcodewilmington.assessment1.part2.ArrayUtils;
 
+import java.util.ArrayList;
+
 /**
  * Created by leon on 2/16/18.
  */
@@ -40,7 +42,17 @@ public class PetOwner {
      * @param pet pet to be removed from the composite collection Pets
      */
     public void removePet(Pet pet) {
+        // my remove doesn't work yet, so not reusing it
+        if (this.pets != null && this.pets.length > 0) {
+            for (int i = 0; i < this.pets.length; i++) {
+                if (this.pets[i].equals(pet)){
+                    this.pets[i] = null;
+                }
+            }
 
+        } else {
+            this.pets = null;
+        }
     }
 
     /**
