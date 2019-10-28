@@ -11,7 +11,13 @@ public class ArrayUtils {
      * Given an array of objects, named `objectArray`, and an object `objectToCount`, return the number of times the `objectToCount` appears in the `objectArray`
      */
     public static Integer getNumberOfOccurrences(Object[] objectArray, Object objectToCount) {
-        return null;
+        Integer count = 0;
+        for (int i = 0; i < objectArray.length; i++) {
+            if (objectToCount.equals(objectArray[i])) {
+                count ++;
+            }
+        }
+        return count;
     }
 
     /**
@@ -21,7 +27,15 @@ public class ArrayUtils {
      * Given an array of objects, name `objectArray`, and an object `objectToRemove`, return an array of objects with identical contents excluding `objectToRemove`
      */
     public static Object[] removeValue(Object[] objectArray, Object objectToRemove) {
-        return null;
+        Object[] resultArray = new Object[objectArray.length - getNumberOfOccurrences(objectArray, objectToRemove)];
+        int count = 0;
+        for (int i = 0; i < objectArray.length; i++) {
+            if (!objectToRemove.equals(objectArray[i])) {
+                resultArray[count] = objectArray[i];
+                count++;
+            }
+        }
+        return resultArray;
     }
 
     /**
@@ -30,7 +44,17 @@ public class ArrayUtils {
      * given an array of objects, named `objectArray` return the most frequently occuring object in the array
      */
     public static Object getMostCommon(Object[] objectArray) {
-        return null;
+        int max = 0;
+        int occ = 0;
+        Object result = null;
+        for (int i = 0; i < objectArray.length; i++) {
+            occ = getNumberOfOccurrences(objectArray, objectArray[i]);
+           if (occ > max) {
+               max = occ;
+               result = objectArray[i];
+           }
+        }
+        return result;
     }
 
 
@@ -40,7 +64,17 @@ public class ArrayUtils {
      * given an array of objects, named `objectArray` return the least frequently occuring object in the array
      */
     public static Object getLeastCommon(Object[] objectArray) {
-        return null;
+        Integer max = Integer.MAX_VALUE;
+        int occ = 0;
+        Object result = null;
+        for (int i = 0; i < objectArray.length; i++) {
+            occ = getNumberOfOccurrences(objectArray, objectArray[i]);
+            if (occ < max) {
+                max = occ;
+                result = objectArray[i];
+            }
+        }
+        return result;
     }
 
     /**
@@ -50,6 +84,13 @@ public class ArrayUtils {
      * given two arrays `objectArray` and `objectArrayToAdd`, return an array containing all elements in `objectArray` and `objectArrayToAdd`
      */
     public static Object[] mergeArrays(Object[] objectArray, Object[] objectArrayToAdd) {
-        return null;
+        Object[] result = new Object[objectArray.length + objectArrayToAdd.length];
+        for (int i = 0; i < objectArray.length; i++) {
+            result[i] = objectArray[i];
+        }
+        for (int i = objectArray.length; i < objectArrayToAdd.length + objectArray.length; i++) {
+            result[i] = objectArrayToAdd[i-objectArray.length];
+        }
+        return result;
     }
 }
