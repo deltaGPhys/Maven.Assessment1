@@ -5,7 +5,7 @@ public class Jumper {
     /*
      * Complete the function below.
      */
-    public int jumps(int k, int j) {
-        return -1;
+    public int jumps(int flagHeight, int j) {
+        return flagHeight/j + flagHeight%j;
     }
 }
