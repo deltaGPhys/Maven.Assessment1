@@ -4,6 +4,7 @@ import com.zipcodewilmington.assessment1.part1.IntegerArrayUtils;
 import com.zipcodewilmington.assessment1.part2.ArrayUtils;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by leon on 2/16/18.
@@ -32,10 +33,12 @@ public class PetOwner {
     public void addPet(Pet pet) {
         // this is gross, but my merge array doesn't work yet
         if (this.pets != null) {
-            Pet[] petsNew = new Pet[this.pets.length + 1];
-            for (int i = 0; i < this.pets.length; i++) {
-                petsNew[i] = this.pets[i];
-            }
+
+            Pet[] petsNew = Arrays.copyOf(this.pets, this.pets.length+1);
+//            Pet[] petsNew = new Pet[this.pets.length + 1];  //loop option
+//            for (int i = 0; i < this.pets.length; i++) {
+//                petsNew[i] = this.pets[i];
+//            }
             petsNew[this.pets.length] = pet;
         } else {
             this.pets = new Pet[1];

@@ -8,12 +8,9 @@ public class Palindrome {
 
     public Integer countPalindromes(String input){
         Integer count = 0;
-        int n = input.length();
-        //String[] substrings = new String[n*(n+1)/2];
-        count = 0;
+
         for (int i = 0; i < input.length(); i++) {
             for (int j = i+1; j < input.length()+1; j++) {
-                //substrings[count] =
                 if (isPalindromic(input.substring(i,j))) {
                     count++;
                 }
